@@ -1,0 +1,1 @@
+set :deploy_to, "/home/camanjs_com/subdomains/dev/public_html"
