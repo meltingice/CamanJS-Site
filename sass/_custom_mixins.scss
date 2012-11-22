@@ -9,3 +9,9 @@
   -moz-transition: $args;
   transition: $args;
 }
+
+@mixin boxShadow($args) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  box-shadow: $args;
+}
