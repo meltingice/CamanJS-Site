@@ -1,0 +1,12 @@
+exclude: Gemfile, Gemfile.lock, Rakefile, config.rb, sass
+safe: false
+server_port: 4000
+url: http://localhost:4000
+asset_bundler:
+  compress:
+    js: yui
+    css: yui
+  base_path: bundles/
+  remove_bundled: false
+  dev: false
+

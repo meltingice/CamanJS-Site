@@ -1,0 +1,16 @@
+<div id="HeaderContainer">
+  <div id="Header">
+    <div class="Left">
+      <h1>CamanJS</h1>
+    </div>
+    <div class="Right">
+      <ul>
+        <li {% if page.section == 'home' %}class="Active"{% endif %}>Home</li>
+        <li {% if page.section == 'examples' %}class="Active"{% endif %}>Examples</li>
+        <li {% if page.section == 'guides' %}class="Active"{% endif %}>Guides</li>
+        <li {% if page.section == 'api' %}class="Active"{% endif %}>API Docs</li>
+      </ul>
+    </div>
+    <div class="Clear"></div>
+  </div>
+</div>

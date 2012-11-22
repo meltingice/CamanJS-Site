@@ -1,0 +1,28 @@
+@import "_custom_mixins";
+@import "_type";
+@import "_header";
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.Clear {
+  clear: both;
+}
+
+.Left {
+  float: left;
+  text-align: left;
+}
+
+.Right {
+  float: right;
+  text-align: right;
+}
+
+#Content {
+  width: 600px;
+  margin: 100px auto;
+  padding: 20px 0;
+}

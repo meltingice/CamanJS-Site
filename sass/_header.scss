@@ -1,0 +1,38 @@
+#HeaderContainer {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  left: 0;
+}
+
+#Header {
+  width: 600px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 20px 0;
+
+  h1 {
+    font-weight: 100;
+    line-height: 50px;
+    margin: 0;
+    font-size: 36px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+
+    li {
+      float: left;
+      line-height: 50px;
+      padding: 0 20px;
+      font-weight: 200;
+
+      &.Active {
+        color: #368ad2;
+        font-weight: normal;
+      }
+    }
+  }
+}
