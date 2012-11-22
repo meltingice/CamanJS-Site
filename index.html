@@ -7,9 +7,20 @@ section: home
 {% include header.html %}
 
 <div id="Content">
-  <p><b>Javascript (Ca)vas (Man)ipulation</b></p>
-  
-  <p>The main focus of CamanJS is manipulating images using the HTML5 canvas and Javascript. It's a combination of a simple-to-use interface with advanced and efficient image/canvas editing techniques. It is also completely library independent and can be safely used next to jQuery, YUI, Scriptaculous, MooTools, etc.</p>
 
-  <p>CamanJS is very easy to extend with new filters and plugins, and it comes with a wide array of image editing functionality, which is only growing as the community makes more plugins. It has a powerful layering system, much like the one present in Photoshop and GIMP, that makes the sky the limit for your creativity.</p>
+  <h3>What is CamanJS?</h3>
+
+  <p><b>CamanJS is (ca)vas (man)ipulation in Javascript.</b> It's a combination of a simple-to-use interface with advanced and efficient image/canvas editing techniques.</p>
+
+  <p>CamanJS is <b>very easy to extend</b> with new filters and plugins, and it comes with a wide array of image editing functionality, which continues to grow. It's completely library independent and <b>works both in NodeJS and the browser</b>.</p>
+
+  <h3>Usage</h3>
+
+  {% highlight js %}
+  Caman('#my-image', function () {
+    this.brightness(50);
+    this.contrast(20);
+    this.render();
+  });
+  {% endhighlight %}
 </div>

@@ -2,6 +2,7 @@ exclude: Gemfile, Gemfile.lock, Rakefile, config.rb, sass
 safe: false
 server_port: 4000
 url: http://localhost:4000
+pygments: true
 asset_bundler:
   compress:
     js: yui
