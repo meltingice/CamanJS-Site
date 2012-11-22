@@ -1,5 +1,5 @@
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 p, li { font-size: 15px; }
@@ -17,4 +17,9 @@ a {
   &:hover{
     color: #368ad2;
   }
+}
+
+code {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
 }
