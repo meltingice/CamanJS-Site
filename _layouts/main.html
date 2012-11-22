@@ -11,6 +11,10 @@
   {% endbundle %}
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+  {% bundle %}
+    - //cdnjs.cloudflare.com/ajax/libs/camanjs/{{page.cdn_version}}/caman.full.min.js
+  {% endbundle %}
 </head>
 <body>
   {{ content }}

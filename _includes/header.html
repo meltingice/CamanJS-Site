@@ -5,10 +5,18 @@
     </div>
     <div class="Right">
       <ul>
-        <li {% if page.section == 'home' %}class="Active"{% endif %}>Home</li>
-        <li {% if page.section == 'examples' %}class="Active"{% endif %}>Examples</li>
-        <li {% if page.section == 'guides' %}class="Active"{% endif %}>Guides</li>
-        <li {% if page.section == 'api' %}class="Active"{% endif %}>API Docs</li>
+        <li {% if page.section == 'home' %}class="Active"{% endif %}>
+          <a href="/">Home</a>
+        </li>
+        <li {% if page.section == 'examples' %}class="Active"{% endif %}>
+          <a href="/examples">Examples</a>
+        </li>
+        <li {% if page.section == 'guides' %}class="Active"{% endif %}>
+          <a href="/guides">Guides</a>
+        </li>
+        <li {% if page.section == 'api' %}class="Active"{% endif %}>
+          <a href="/docs">API Docs</a>
+        </li>
       </ul>
     </div>
     <div class="Clear"></div>

@@ -2,6 +2,8 @@
 layout: main
 title: CamanJS - Javascript Image Manipulation
 section: home
+stable_version: 3.2.3
+cdn_version: 3.2.2
 ---
 
 {% include header.html %}
@@ -18,9 +20,26 @@ section: home
 
   {% highlight js %}
   Caman('#my-image', function () {
-    this.brightness(50);
-    this.contrast(20);
+    this.brightness(10);
+    this.contrast(30);
+    this.sepia(60);
+    this.saturation(-30);
     this.render();
   });
   {% endhighlight %}
+
+  <div id="HomeExamples">
+    <div class="Left">
+      <img src="/images/example1_290.jpg">
+      <p>Before</p>
+    </div>
+    <div class="Right">
+      <img 
+        id="homepage-example" 
+        src="/images/example1_290.jpg"
+        data-caman="brightness(10) contrast(30) sepia(60) saturation(-30)"
+      >
+      <p>After</p>
+    </div>
+  </div>
 </div>

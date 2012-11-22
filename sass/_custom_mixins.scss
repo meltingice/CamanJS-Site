@@ -3,3 +3,9 @@
      -moz-border-radius: $rad;
           border-radius: $rad;
 }
+
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  transition: $args;
+}

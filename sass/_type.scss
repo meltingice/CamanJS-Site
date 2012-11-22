@@ -6,4 +6,15 @@ p, li { font-size: 15px; }
 
 p {
   line-height: 24px;
+  color: #343431;
+}
+
+a {
+  text-decoration: none;
+  color: #343431;
+  @include transition(color 0.3s ease-out);
+
+  &:hover{
+    color: #368ad2;
+  }
 }
