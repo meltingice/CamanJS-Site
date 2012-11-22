@@ -18,6 +18,8 @@ cdn_version: 3.2.2
 
   <h3>Usage</h3>
 
+  <p>Javascript</p>
+
   {% highlight js %}
   Caman('#my-image', function () {
     this.brightness(10);
@@ -28,6 +30,14 @@ cdn_version: 3.2.2
   });
   {% endhighlight %}
 
+  <p>HTML data attribute</p>
+  {% highlight html %}
+  <img 
+    data-caman="brightness(10) contrast(30) sepia(60) saturation(-30)"
+    src="path/to/image.jpg"
+  >
+  {% endhighlight %}
+
   <div id="HomeExamples">
     <div class="Left">
       <img src="/images/example1_290.jpg">
@@ -35,7 +45,6 @@ cdn_version: 3.2.2
     </div>
     <div class="Right">
       <img 
-        id="homepage-example" 
         src="/images/example1_290.jpg"
         data-caman="brightness(10) contrast(30) sepia(60) saturation(-30)"
       >
