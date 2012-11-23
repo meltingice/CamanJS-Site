@@ -13,3 +13,76 @@ asset_bundler:
 caman:
   stable_version: 3.2.3
   cdn_version: 3.2.2
+
+filters:
+  - brightness
+  - contrast
+  - saturation
+  - vibrance
+  - exposure
+  - hue
+  - sepia
+  - gamma
+  - noise
+  - clip
+filter_options:
+  brightness:
+    min: -100
+    max: 100
+    step: 1
+  contrast:
+    min: -100
+    max: 100
+    step: 1
+  saturation:
+    min: -100
+    max: 100
+    step: 1
+  vibrance:
+    min: -100
+    max: 100
+    step: 1
+  exposure:
+    min: -100
+    max: 100
+    step: 1
+  hue:
+    min: 0
+    max: 100
+    step: 1
+  sepia:
+    min: 0
+    max: 100
+    step: 1
+  gamma:
+    min: 0
+    max: 10
+    step: 0.1
+  noise:
+    min: 0
+    max: 100
+    step: 1
+  clip:
+    min: 0
+    max: 100
+    step: 1
+
+caman_presets:
+  - vintage
+  - lomo
+  - clarity
+  - sinCity
+  - sunrise
+  - crossProcess
+  - orangePeel
+  - love
+  - grungy
+  - jarques
+  - pinhole
+  - oldBoot
+  - glowingSun
+  - hazyDays
+  - herMajesty
+  - nostalgia
+  - hemingway
+  - concentrate

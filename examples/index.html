@@ -2,71 +2,18 @@
 layout: main
 title: CamanJS - Interactive Examples
 section: examples
-filters:
-  - brightness
-  - contrast
-  - saturation
-  - vibrance
-  - exposure
-  - hue
-  - sepia
-  - gamma
-  - noise
-  - clip
-options:
-  brightness:
-    min: -100
-    max: 100
-    step: 1
-  contrast:
-    min: -100
-    max: 100
-    step: 1
-  saturation:
-    min: -100
-    max: 100
-    step: 1
-  vibrance:
-    min: -100
-    max: 100
-    step: 1
-  exposure:
-    min: -100
-    max: 100
-    step: 1
-  hue:
-    min: 0
-    max: 100
-    step: 1
-  sepia:
-    min: 0
-    max: 100
-    step: 1
-  gamma:
-    min: 0
-    max: 10
-    step: 0.1
-  noise:
-    min: 0
-    max: 100
-    step: 1
-  clip:
-    min: 0
-    max: 100
-    step: 1
 ---
 
 {% include header.html %}
 
 <div id="Content">
   <h3>Interactive Example</h3>
-
   <p>Choose a filter and move the slider to see it in action. This is only a sample of the full power of CamanJS.</p>
 
   <img id="example" src="/images/example1_600.jpg">
 
   <div id="Filters">
-  {% for filter in page.filters %}
+  {% for filter in site.filters %}
     <div class="Filter">
       <div class="FilterName">
         <p>{{filter}}</p>
@@ -75,9 +22,9 @@ options:
       <div class="FilterSetting">
         <input
           type="range" 
-          min="{{page.options[filter].min}}"
-          max="{{page.options[filter].max}}"
-          step="{{page.options[filter].step}}"
+          min="{{site.filter_options[filter].min}}"
+          max="{{site.filter_options[filter].max}}"
+          step="{{site.filter_options[filter].step}}"
           value="0"
           data-filter="{{filter}}"
         >
@@ -87,5 +34,20 @@ options:
   {% endfor %}
 
   <div class="Clear"></div>
+  </div>
+
+  <h3>Preset Examples</h3>
+  <p>CamanJS has a number of preset filters that show off how to generate consistent effects on many types of images.</p>
+
+  <img id="preset-example" src="/images/example2_600.jpg">
+
+  <div id="PresetFilters">
+  {% for preset in site.caman_presets %}
+    <input
+      type="button"
+      data-preset="{{preset}}"
+      value="{% format_camelcase preset %}"
+    >
+  {% endfor %}
   </div>
 </div>
