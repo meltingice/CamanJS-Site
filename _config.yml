@@ -10,4 +10,6 @@ asset_bundler:
   base_path: bundles/
   remove_bundled: false
   dev: false
-
+caman:
+  stable_version: 3.2.3
+  cdn_version: 3.2.2

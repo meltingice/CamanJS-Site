@@ -12,12 +12,14 @@
 
   <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Raleway:400,200,700' rel='stylesheet' type='text/css'>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
   {% bundle %}
-    - //cdnjs.cloudflare.com/ajax/libs/camanjs/{{page.cdn_version}}/caman.full.min.js
-    - /javascripts/html5slider.js
+    - //cdnjs.cloudflare.com/ajax/libs/camanjs/{{site.caman.cdn_version}}/caman.full.min.js
+    - //ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+    - /javascripts/ext/html5slider.js
+    - /javascripts/ext/underscore.js
   {% endbundle %}
+
+  <script src="/javascripts/{{page.section}}.js"></script>
 </head>
 <body>
   {{ content }}

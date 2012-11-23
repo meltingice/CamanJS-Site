@@ -59,7 +59,7 @@ options:
 {% include header.html %}
 
 <div id="Content">
-  <h3>Interactive Examples</h3>
+  <h3>Interactive Example</h3>
 
   <p>Choose a filter and move the slider to see it in action. This is only a sample of the full power of CamanJS.</p>
 
@@ -79,6 +79,7 @@ options:
           max="{{page.options[filter].max}}"
           step="{{page.options[filter].step}}"
           value="0"
+          data-filter="{{filter}}"
         >
       </div>
     </div>

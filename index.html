@@ -2,8 +2,6 @@
 layout: main
 title: CamanJS - Javascript Image Manipulation
 section: home
-stable_version: 3.2.3
-cdn_version: 3.2.2
 ---
 
 {% include header.html %}
@@ -57,9 +55,9 @@ cdn_version: 3.2.2
   <div id="DownloadLinks">
     <div class="DownloadSection">
       <h4>Latest Stable</h4>
-      <p>Version {{page.stable_version}}</p>
+      <p>Version {{site.caman.stable_version}}</p>
 
-      <a href="https://github.com/meltingice/CamanJS/archive/v{{page.stable_version}}.zip">Download</a>
+      <a href="https://github.com/meltingice/CamanJS/archive/v{{site.caman.stable_version}}.zip">Download</a>
     </div>
 
     <div class="DownloadSection">
@@ -71,8 +69,8 @@ cdn_version: 3.2.2
 
     <div class="DownloadSection">
       <h4>CDN Hosting</h4>
-      <p>Version {{page.cdn_version}}</p>
-      <a href="http://cdnjs.cloudflare.com/ajax/libs/camanjs/{{page.cdn_version}}/caman.full.min.js">Get Link</a>
+      <p>Version {{site.caman.cdn_version}}</p>
+      <a href="http://cdnjs.cloudflare.com/ajax/libs/camanjs/{{site.caman.cdn_version}}/caman.full.min.js">Get Link</a>
     </div>
 
     <div class="Clear"></div>
