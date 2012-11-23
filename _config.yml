@@ -7,7 +7,7 @@ asset_bundler:
   compress:
     js: yui
     css: yui
-  base_path: bundles/
+  base_path: /bundles/
   remove_bundled: false
   dev: false
 caman:
