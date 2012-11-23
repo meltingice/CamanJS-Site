@@ -1,0 +1,38 @@
+#Filters {
+  .Filter {
+    float: left;
+    width: 300px;
+
+    > div {
+      padding: 5px 10px;
+    }
+
+    .FilterName {
+      float: left;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .FilterSetting {
+      float: right;
+
+      input[type="range"] {
+        -webkit-appearance: none !important;
+        width: 180px;
+        background-color: #434341;
+        height: 1px;
+        vertical-align: 1px;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none !important;
+        height: 12px;
+        width: 15px;
+        background-color: #368ad2;
+        cursor: pointer;
+      }
+    }
+  }
+}

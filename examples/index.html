@@ -1,0 +1,89 @@
+---
+layout: main
+title: CamanJS - Interactive Examples
+section: examples
+filters:
+  - brightness
+  - contrast
+  - saturation
+  - vibrance
+  - exposure
+  - hue
+  - sepia
+  - gamma
+  - noise
+  - clip
+options:
+  brightness:
+    min: -100
+    max: 100
+    step: 1
+  contrast:
+    min: -100
+    max: 100
+    step: 1
+  saturation:
+    min: -100
+    max: 100
+    step: 1
+  vibrance:
+    min: -100
+    max: 100
+    step: 1
+  exposure:
+    min: -100
+    max: 100
+    step: 1
+  hue:
+    min: 0
+    max: 100
+    step: 1
+  sepia:
+    min: 0
+    max: 100
+    step: 1
+  gamma:
+    min: 0
+    max: 10
+    step: 0.1
+  noise:
+    min: 0
+    max: 100
+    step: 1
+  clip:
+    min: 0
+    max: 100
+    step: 1
+---
+
+{% include header.html %}
+
+<div id="Content">
+  <h3>Interactive Examples</h3>
+
+  <p>Choose a filter and move the slider to see it in action. This is only a sample of the full power of CamanJS.</p>
+
+  <img id="example" src="/images/example1_600.jpg">
+
+  <div id="Filters">
+  {% for filter in page.filters %}
+    <div class="Filter">
+      <div class="FilterName">
+        <p>{{filter}}</p>
+      </div>
+
+      <div class="FilterSetting">
+        <input
+          type="range" 
+          min="{{page.options[filter].min}}"
+          max="{{page.options[filter].max}}"
+          step="{{page.options[filter].step}}"
+          value="0"
+        >
+      </div>
+    </div>
+  {% endfor %}
+
+  <div class="Clear"></div>
+  </div>
+</div>
