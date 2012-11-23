@@ -3,6 +3,7 @@
 ---
 
 caman = null
+presetCaman = null
 filters = {} # Filter values
 
 busy = false # Are we currently rendering?
@@ -29,8 +30,29 @@ render = _.throttle ->
       render() if changed
 , 500
 
+presetBusy = false
+renderPreset = (preset) ->
+  return if presetBusy
+  
+  $("#PresetFilters a").removeClass('Active')
+  
+  $filter = $("#PresetFilters a[data-preset='#{preset}']")
+  name = $filter.html()
+  $filter
+    .addClass('Active')
+    .html('Rendering...')
+  
+  presetBusy = true
+  presetCaman.revert ->
+    presetCaman[preset]()
+    presetCaman.render ->
+      $filter.html(name)
+
+      presetBusy = false
+
 $(document).ready ->
   caman = Caman '#example'
+  presetCaman = Caman '#preset-example'
 
   $('.FilterSetting input').each ->
     filter = $(@).data 'filter'
@@ -44,3 +66,7 @@ $(document).ready ->
 
     $(@).find('~ .FilterValue').html value
     render()
+
+  $('#PresetFilters').on 'click', 'a', ->
+    renderPreset $(@).data('preset')
+

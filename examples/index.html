@@ -43,11 +43,7 @@ section: examples
 
   <div id="PresetFilters">
   {% for preset in site.caman_presets %}
-    <input
-      type="button"
-      data-preset="{{preset}}"
-      value="{% format_camelcase preset %}"
-    >
+    <a data-preset="{{preset}}">{% format_camelcase preset %}</a>
   {% endfor %}
   </div>
 </div>

@@ -1,5 +1,7 @@
+@import "../_custom_mixins";
+
 #Filters {
-  margin-top: 10px;
+  margin: 10px 0;
 
   .Filter {
     float: left;
@@ -40,6 +42,37 @@
         width: 30px;
         display: inline-block;
       }
+    }
+  }
+}
+
+#PresetFilters {
+  a {
+    @include borderRadius(3px);
+    @include transition(background-color 0.3s ease-out);
+
+    background-color: #368AD2;
+    display: block;
+    float: left;
+    text-align: center;
+    padding: 8px 10px;
+    color: #f8f8f2;
+    margin: 5px;
+    border: none;
+    font-size: 13px;
+    width: 120px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten(#368AD2, 5%);
+    }
+
+    &:active {
+      @include boxShadow(inset 1px 1px 3px rgba(0, 0, 0, 0.3));
+    }
+
+    &.Active {
+      background-color: #E69751;
     }
   }
 }
