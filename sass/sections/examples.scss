@@ -1,6 +1,6 @@
 #Filters {
   margin-top: 10px;
-  
+
   .Filter {
     float: left;
     width: 300px;
@@ -22,7 +22,7 @@
 
       input[type="range"] {
         -webkit-appearance: none !important;
-        width: 180px;
+        width: 150px;
         background-color: #434341;
         height: 1px;
         vertical-align: 1px;
@@ -34,6 +34,11 @@
         width: 15px;
         background-color: #368ad2;
         cursor: pointer;
+      }
+
+      .FilterValue {
+        width: 30px;
+        display: inline-block;
       }
     }
   }
