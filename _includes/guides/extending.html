@@ -64,6 +64,25 @@ Caman.Filter.register("example", function (adjust) {
 });
 {% endhighlight %}
 
+<h4>Kernel Manipulations</h4>
+<p>Not everything can be done one pixel at a time. Another way to modify images is by using a convolution kernel. This is simply a matrix that describes how to modify a certain pixel based on the ones around it. The <a href="http://gimp.open-source-solution.org/manual/plug-in-convmatrix.html">GIMP documentation</a> does a great job at explaining this.</p>
+
+<p>In CamanJS, kernels are defined by 1-dimensional arrays. The divisor and bias are automatically calculated for you, but you can manually specify them after the convolution matrix if needed.</p>
+
+{% highlight js %}
+Caman.Filter.register("boxBlur", function () {
+  // Instead of calling process, we call processKernel.
+  // The first argument is an arbitrary name used to 
+  // identify the filter. The optional 3rd and 4th arguments
+  // are the divisor and bias, respectively.
+  this.processKernel("Box Blur", [
+    1, 1, 1,
+    1, 1, 1,
+    1, 1, 1
+  ]);
+});
+{% endhighlight %}
+
 <h4>Blenders</h4>
 <p>You can add new blenders that control how layers are applied to their parent layers. Here's how the multiply blender would be implemented:</p>
 
