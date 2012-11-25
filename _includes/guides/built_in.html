@@ -1,0 +1,29 @@
+<h3 id="BuiltIn">Built-In Functionality</h3>
+
+<p>CamanJS has a wealth of built-in functionality from basic image filters to color conversion utility functions, and much more.</p>
+
+<h4>Built-In Filters</h4>
+
+<p>All of these filters are included with CamanJS in the core library.</p>
+
+<h5>Brightness</h5>
+<p>Simple brightness adjustment.</p>
+<p>Range is -100 to 100. Values < 0 will darken while > 0 will brighten.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.brightness(5).render();
+})
+{% endhighlight %}
+
+<h5>Channels</h5>
+<p>Lets you modify the intensity of the Red, Green, and Blue color channels individually.</p>
+<p>Must be given an argument with at least one channel to adjust. Adjustment values are from -100 to 100.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.channels({
+    red: 10,
+    green: -5,
+    blue: 2
+  }).render();
+});
+{% endhighlight %}

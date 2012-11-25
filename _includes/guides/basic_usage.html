@@ -1,0 +1,60 @@
+<h3 id="BasicUsage">Browser - Basic Usage</h3>
+
+<p>One very important thing to note: due to browser security restrictions, CamanJS can only modify images that come from the same domain as the page in which it's loaded unless the image has a properly configured <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS policy</a> or you specify a proxy (more info below).</p>
+
+<p>First, we'll need to include the appropriate Javascript files:</p>
+
+{% highlight html %}
+<!-- Either include the full CamanJS code including plugins -->
+<script type="text/javascript" src="caman.full.min.js"></script>
+
+<!-- Or include the core library and some plugins/filters -->
+<script type="text/javascript" src="caman.min.js"></script>
+<script type="text/javascript" src="plugins/myplugin.js"></script>
+{% endhighlight %}
+
+<h4>Loading an Image into a Canvas via URL</h4>
+
+<p>This method assumes you already have a canvas element in the page, and you would like to load an image via URL into the canvas for editing with CamanJS. You can also give DOM objects instead of Strings if you prefer.</p>
+
+{% highlight js %}
+Caman("path/to/image.jpg", "#canvas-id", function () {
+  // manipulate image here
+  this.brightness(5).render();
+});
+{% endhighlight %}
+
+<h4>Replace an Image with a Canvas</h4>
+
+<p>This performs an "in-place" initialization by replacing the given image with an identically sized canvas. If you don't modify the image at all, it will look identical to the user. This can also accept a DOM object instead of a CSS selector.</p>
+
+{% highlight js %}
+Caman("#image-id", function () {
+  this.brightness(5).render();
+});
+{% endhighlight %}
+
+<h4>Loading a Canvas with Existing Image Data</h4>
+
+<p>If you have a canvas you want to modify, but it already has image data on it, you can give the canvas as the first argument. This can accept a DOM object as well.</p>
+
+{% highlight js %}
+Caman("#canvas-id", function () {
+  this.brightness(5).render();
+});
+{% endhighlight %}
+
+<h3>NodeJS - Basic Usage</h3>
+
+<p>Initialization with NodeJS is extremely simple. You can either give Caman the path to an image on disk, or an already initialized File object.</p>
+
+<p>Once you are done modifying the image, you can save the modified image to disk as well.</p>
+
+{% highlight js %}
+Caman("/path/to/file.png", function () {
+  this.brightness(5);
+  this.render(function () {
+    this.save("/path/to/output.png");
+  });
+});
+{% endhighlight %}

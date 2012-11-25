@@ -1,6 +1,16 @@
 #HeaderContainer {
   width: 100%;
   background-color: #fff;
+
+  &.Fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    ~ #Content {
+      padding-top: 140px;
+    }
+  }
 }
 
 #Header {
@@ -31,6 +41,26 @@
           color: #368ad2;
           font-weight: normal;
         }
+      }
+    }
+  }
+}
+
+#GuideSections {
+  width: 100%;
+  padding: 0;
+  margin-top: 10px !important;
+
+  li {
+    width: 33%;
+    text-align: center;
+    margin: 0;
+    padding: 0 !important;
+
+    &.Active {
+      a {
+        color: #368ad2;
+        font-weight: normal;
       }
     }
   }
