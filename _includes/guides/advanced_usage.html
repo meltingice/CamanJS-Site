@@ -56,3 +56,19 @@ Caman("#image", function () {
 </ul>
 
 <div class="Clear"></div>
+
+<p>It is extremely easy to extend CamanJS with new blending functions as well. Here's how you would implement the multiply blender:</p>
+
+{% highlight js %}
+Caman.Blender.register("multiply", function(rgbaLayer, rgbaParent) {
+  return {
+    r: (rgbaLayer.r * rgbaParent.r) / 255,
+    g: (rgbaLayer.g * rgbaParent.g) / 255,
+    b: (rgbaLayer.b * rgbaParent.b) / 255
+  };
+});
+{% endhighlight %}
+
+<p>The two arguments to the blending function are the RGB values for the pixel in the current layer and the corresponding pixel in the parent layer, respectively. The blending function needs to return a new RGB object that will be the pixel's new color.</p>
+
+<div class="Clear"></div>

@@ -17,6 +17,7 @@ a {
   text-decoration: none;
   color: #343431;
   @include transition(color 0.3s ease-out);
+  @include transition(font-weight 0.3s ease-out);
 
   &:hover{
     color: #368ad2;
