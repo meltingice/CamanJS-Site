@@ -11,7 +11,12 @@ $(document).ready ->
   $("#GuideSections").on 'click', 'a', ->
     $target = $ $(@).attr('href')
     top = Math.max 0, $target.position().top - 129
-    $('body').scrollTop top
+
+    document.location.hash = $(@).attr('href')
+    
+    setTimeout ->
+      $('body').scrollTop top
+    , 50
 
     return false
 

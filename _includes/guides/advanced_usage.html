@@ -1,0 +1,56 @@
+<h3 id="AdvancedUsage">Advanced Usage</h3>
+<p>Once you've gotten the CamanJS basics down, there are some more advanced techniques for you to explore.</p>
+
+<h4>Layers</h4>
+<p>CamanJS has a powerful layering system built-in that gives you even more editing power. Layers in CamanJS use a slightly different paradigm than those in editing applications like Photoshop. Layers can be nested, but they always apply effects to their parents like a stack.</p>
+
+<p>When layers are applied to their parents, it is done using a particular blending mode. The default is "normal".</p>
+
+{% highlight js %}
+Caman("#image", function () {
+  // We can call any filter before the layer
+  this.exposure(-10);
+
+  // Create the layer
+  this.newLayer(function () {
+    // Change the blending mode
+    this.setBlendingMode("multiply");
+
+    // Change the opacity of this layer
+    this.opacity(80);
+
+    // Now we can *either* fill this layer with a
+    // solid color...
+    this.fillColor('#6899ba');
+
+    // ... or we can copy the contents of the parent
+    // layer to this one.
+    this.copyParent();
+
+    // Now, we can call any filter function though the
+    // filter object.
+    this.filter.brightness(10);
+    this.filter.contrast(20);
+  });
+
+  // And we can call more filters after the layer
+  this.clip(10);
+  this.render();
+});
+{% endhighlight %}
+
+<h4>Blenders</h4>
+<p>As mentioned above in the Layers section, when a layer is applied to it's parent, it uses a blending function. The built-in blending functions are:</p>
+
+<ul>
+  <li>normal</li>
+  <li>multiply</li>
+  <li>screen</li>
+  <li>overlay</li>
+  <li>difference</li>
+  <li>addition</li>
+  <li>exclusion</li>
+  <li>softLight</li>
+  <li>lighten</li>
+  <li>darken</li>
+</ul>
