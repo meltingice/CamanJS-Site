@@ -33,3 +33,27 @@ body {
   background-color: #f8f8f2;
   margin: 50px 0;
 }
+
+.TableList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+
+    float: left;
+    display: block;
+    height: 40px;
+    background-color: #f8f8f8;
+    margin: 3px;
+    line-height: 40px;
+    padding: 0 10px;
+  }
+
+  &.Across5 {
+    li { width: 114px; }
+  }
+}
