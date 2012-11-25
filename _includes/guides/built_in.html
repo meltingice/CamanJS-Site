@@ -52,3 +52,127 @@ Caman("#image", function () {
   this.colorize("#4090D5", 20);
 });
 {% endhighlight %}
+
+<h5>Contrast</h5>
+<p>Increases or decreases the color contrast of the image.</p>
+<p>Range is -100 to 100. Values < 0 will decrease contrast while values > 0 will increase contrast. Note: the contrast adjustment values are a bit sensitive. While unrestricted, sane adjustment values are usually around 5-10.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.contrast(5).render();
+});
+{% endhighlight %}
+
+<h5>Curves</h5>
+<img class="Right" style="width:300px;" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Bezier_curve.svg/800px-Bezier_curve.svg.png">
+<p>Adjusts the color values of an image based on a given bezier curve. If you're familiar with the Curves functionality in Photoshop, this works in a very similar fashion.</p>
+<p>Arguments: curves(channel(s), start point, 1st control point, 2nd control point, end point)</p>
+<p>The first argument represents the channels you wish to modify with the filter. It can be an array of channels or a string (for a single channel).</p>
+<p>The rest of the arguments are 2-element arrays that represent point coordinates. They are specified in the same order as shown in this image to the right. The coordinates are in the range of 0 to 255 for both X and Y values.</p>
+<p>The x-axis represents the input value for a single channel, while the y-axis represents the output value.</p>
+{% highlight js %}
+Caman("#image", function () {
+  // Using a string for the channel
+  this.curves('rgb', [0, 0], [100, 120], [180, 240], [255, 255]);
+  
+  // Specifying individual color channels
+  this.curves(['r', 'b'], [0, 0], [100, 120], [180, 240], [255, 255]);
+  
+  this.render();
+});
+{% endhighlight %}
+
+<h5>Exposure</h5>
+<p>Simple exposure adjustment. Behind the scenes, this filter actually uses the Curves filter.</p>
+<p>Range is -100 to 100. Values < 0 will decrease exposure while values > 0 will increase exposure.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.exposure(10).render();
+});
+{% endhighlight %}
+
+<h5>Fill Color</h5>
+<p>Fills the canvas with a single solid color. Useful when used with layers.</p>
+<p>Can take either separate R, G, and B values as arguments, or a single hex color value.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.fillColor("#e2e2e2");
+  this.fillColor(125, 215, 56);
+  
+  this.render();
+});
+{% endhighlight %}
+
+<h5>Gamma</h5>
+<p>Lets you adjust the gamma of the image.</p>
+<p>Range is from 0 to infinity, although sane values are from 0 to 4 or 5. Values between 0 and 1 will lessen the contrast while values greater than 1 will increase it.</p>
+<p>If you are unsure of what gamma really does, I recommend reading this <a href="http://en.wikipedia.org/wiki/Gamma_correction">Wikipedia article</a>.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.gamma(1.4).render();
+});
+{% endhighlight %}
+
+<h5>Greyscale</h5>
+<p>Converts the image to greyscale. This is the preferred method for converting to greyscale, as opposed to using the saturation filter.</p>
+<p>This filter does not take any arguments.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.greyscale().render();
+});
+{% endhighlight %}
+
+<h5>Hue</h5>
+<p>Adjusts the hue of the image. It can be used to shift the colors in an image in a uniform fashion. If you are unfamiliar with Hue, I recommend reading this <a href="http://en.wikipedia.org/wiki/Hue">Wikipedia article</a>.</p>
+<p>Range is 0 to 100.</p>
+<p>Sometimes, Hue is expressed in the range of 0 to 360. If that's the terminology you're used to, think of 0 to 100 representing the percentage of Hue shift in the 0 to 360 range.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.hue(90).render();
+});
+{% endhighlight %}
+
+<h5>Invert</h5>
+<p>Inverts all colors in the image by subtracting each color channel value from 255.</p>
+<p>This filter does not take any arguments.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.invert().render();
+});
+{% endhighlight %}
+
+<h5>Noise</h5>
+<p>Applies an adjustable amount of noise to the image.</p>
+<p>Range is from 0 to infinity. The higher the value, the more noise is applied.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.noise(15).render();
+});
+{% endhighlight %}
+
+<h5>Saturation</h5>
+<p>Adjusts the color saturation of the image. If you want to completely desaturate the image, using the greyscale filter is highly recommended because it will yield better results.</p>
+<p>Range is -100 to 100. Values < 0 will desaturate the image while values > 0 will saturate it.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.saturation(15).render();
+});
+{% endhighlight %}
+
+<h5>Sepia</h5>
+<p>Applies an adjustable sepia effect to the image.</p>
+<p>Range is from 0 to 100. The larger the value, the stronger the sepia effect.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.sepia(50).render();
+});
+{% endhighlight %}
+
+<h5>Vibrance</h5>
+<p>Similar to saturation, but adjusts the saturation levels in a slightly smarter, more subtle way. Vibrance will boost colors that are less saturated more and boost already saturated colors less, while saturation boosts all colors by the same level.</p>
+<p>Range is -100 to 100. Values < 0 will desaturate the image while values > 0 will saturate it.</p>
+<p>If you want to completely desaturate the image, using the greyscale filter is highly recommended because it will yield better results.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.vibrance(15).render();
+});
+{% endhighlight %}
