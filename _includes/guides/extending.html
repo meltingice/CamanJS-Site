@@ -83,6 +83,46 @@ Caman.Filter.register("boxBlur", function () {
 });
 {% endhighlight %}
 
+<h4>Advanced Plugins</h4>
+<p>If what you want to do doesn't fit into the workflow of pixelwise plugins or kernel manipulations, then you can also get full access to the canvas data inside of CamanJS using plugins.</p>
+
+<p>Some examples of plugins include the super-fast Stack Blur algorithm and cropping/resizing. Notice that you also have to create a filter function for plugins. Here's how cropping works:</p>
+
+{% highlight js %}
+Caman.Plugin.register("crop", function(width, height, x, y) {
+  var canvas, ctx;
+  if (x == null) {
+    x = 0;
+  }
+  if (y == null) {
+    y = 0;
+  }
+
+  // Support NodeJS by checking for exports object
+  if (typeof exports !== "undefined" && exports !== null) {
+    canvas = new Canvas(width, height);
+  } else {
+    canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+  }
+
+  // Get the new context and draw a portion of the current canvas
+  // to the new canvas.
+  ctx = canvas.getContext('2d');
+  ctx.drawImage(this.canvas, x, y, width, height, 0, 0, width, height);
+
+  // Tell CamanJS to replace the current canvas with our new cropped one.
+  this.replaceCanvas(canvas);
+});
+
+// Register our filter for the plugin
+Caman.Filter.register("crop", function() {
+  // Here we call processPlugin so CamanJS knows how to handle it
+  this.processPlugin("crop", arguments);
+});
+{% endhighlight %}
+
 <h4>Blenders</h4>
 <p>You can add new blenders that control how layers are applied to their parent layers. Here's how the multiply blender would be implemented:</p>
 
