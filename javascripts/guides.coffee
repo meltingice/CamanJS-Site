@@ -5,7 +5,7 @@
 $(document).ready ->
   $("#GuideSections").on 'click', 'a', ->
     $target = $ $(@).attr('href')
-    top = Math.max 0, $target.position().top - 130
+    top = Math.max 0, $target.position().top - 129
 
     $('body').scrollTop top
     #$(@).parents('ul').find('.Active').removeClass('Active')
