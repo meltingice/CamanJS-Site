@@ -27,3 +27,28 @@ Caman("#image", function () {
   }).render();
 });
 {% endhighlight %}
+
+<h5>Clip</h5>
+<p>Clips the color values when they fall outside of the given range.</p>
+<p>Range is from 0 to 100.</p>
+{% highlight js %}
+Caman("#image", function () {
+  this.clip(20).render();
+});
+{% endhighlight %}
+
+<h5>Colorize</h5>
+<p>Uniformly shifts the colors in an image towards the given color.</p>
+<p>The adjustment range is from 0 to 100. The higher the value, the closer the colors in the image shift towards the given adjustment color. This filter is polymorphic and can take two different sets of arguments, which are shown below:</p>
+{% highlight js %}
+Caman("#image", function () {
+  // Explicitly give the R, G, and B values of the
+  // color to shift towards.
+  //
+  // Arguments: (R, G, B, strength)
+  this.colorize(25, 180, 200, 20);
+  
+  // The other way is to specify a color in hex form:
+  this.colorize("#4090D5", 20);
+});
+{% endhighlight %}
