@@ -1,0 +1,16 @@
+<h3 id="Extending">Extending CamanJS</h3>
+
+<h4>Blenders</h4>
+<p>You can add new blenders that control how layers are applied to their parent layers. Here's how the multiply blender would be implemented:</p>
+
+{% highlight js %}
+Caman.Blender.register("multiply", function(rgbaLayer, rgbaParent) {
+  return {
+    r: (rgbaLayer.r * rgbaParent.r) / 255,
+    g: (rgbaLayer.g * rgbaParent.g) / 255,
+    b: (rgbaLayer.b * rgbaParent.b) / 255
+  };
+});
+{% endhighlight %}
+
+<p>The two arguments to the blending function are the RGB values for the pixel in the current layer and the corresponding pixel in the parent layer, respectively. The blending function needs to return a new RGB object that will be the pixel's new color.</p>

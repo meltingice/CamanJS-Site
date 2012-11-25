@@ -57,18 +57,46 @@ Caman("#image", function () {
 
 <div class="Clear"></div>
 
-<p>It is extremely easy to extend CamanJS with new blending functions as well. Here's how you would implement the multiply blender:</p>
+<p>It is extremely easy to extend CamanJS with new blending functions as well. More info is available in the <a href="#Extending">Extending CamanJS</a> section.</p>
 
+<h4>Cropping/Resizing</h4>
+
+<p>CamanJS allows you to crop and resize canvases with ease. This can be done either at initialization time, or later on.
+
+<p>Note that, at this time, resizing at initialization is the only part included in the core library. You will either have to use the full version of CamanJS or include the size plugin manually if you want to crop or resize later.</p>
+
+<h5>Resize at Initialization</h5>
+<p>Resizing at initialization is handled by the data attributes camanwidth and camanheight. Specifying one or both will resize the image when it is applied to the canvas. The image will be stretched if the given size has a different width:height ratio than the original.</p>
+{% highlight html %}
+<img
+  src="path/to/image.jpg" 
+  data-camanwidth="500"
+  data-camanheight="500"
+>
+{% endhighlight %}
+
+<h5>Resize via Plugin</h5>
+<p>Resizing is provided as a CamanJS plugin. You must specify at least width or height. Changing the width:height ratio will stretch the image.</p>
 {% highlight js %}
-Caman.Blender.register("multiply", function(rgbaLayer, rgbaParent) {
-  return {
-    r: (rgbaLayer.r * rgbaParent.r) / 255,
-    g: (rgbaLayer.g * rgbaParent.g) / 255,
-    b: (rgbaLayer.b * rgbaParent.b) / 255
-  };
+Caman("#image", function () {
+  this.resize({
+    width: 500,
+    height: 300
+  });
+
+  // You still have to call render!
+  this.render();
 });
 {% endhighlight %}
 
-<p>The two arguments to the blending function are the RGB values for the pixel in the current layer and the corresponding pixel in the parent layer, respectively. The blending function needs to return a new RGB object that will be the pixel's new color.</p>
+<h5>Crop via Plugin</h5>
+<p>Cropping is also provided as a CamanJS plugin. You must specify at least the new width and height. You can optionally also specity the coordinates of the top left corner where the cropping should start.</p>
+{% highlight js %}
+Caman("#image", function () {
+  // width, height, x, y
+  this.crop(500, 300);
 
-<div class="Clear"></div>
+  // Still have to call render!
+  this.render();
+});
+{% endhighlight %}
