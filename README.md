@@ -1,6 +1,6 @@
 # CamanJS Site
 
-**This is a new version of the site that is currently only deployed at [dev.camanjs.com](http://dev.camanjs.com).**
+The code for the website available at [camanjs.com](http://camanjs.com).
 
 ## Development
 
