@@ -100,3 +100,32 @@ Caman("#image", function () {
   this.render();
 });
 {% endhighlight %}
+
+<h4>Events</h4>
+
+<p>CamanJS has an event system that lets you execute callbacks when specific actions occur. You can listen to events from all CamanJS instances on a page, or specific individual instances. The available events are:</p>
+
+<ul class="TableList Across3">
+  <li>processStart</li>
+  <li>processComplete</li>
+  <li>renderFinished</li>
+  <li>blockStarted</li>
+  <li>blockFinished</li>
+</ul>
+
+<div class="Clear"></div>
+
+<p><code>processStart</code> and <code>processComplete</code> are triggered when a single filter starts and finishes rendering. When all filters are finished and the modification is complete, <code>renderFinished</code> is triggered. The renderer in CamanJS splits the image into blocks, so when a single block starts and finishes rendering, <code>blockStarted</code> and <code>blockFinished</code> are triggered. These are also useful for tracking render progress for larger images.</p>
+
+{% highlight js %}
+// Listen to all CamanJS instances
+Caman.Event.listen("processStart", function (job) {
+  console.log("Start:", job.name);
+});
+
+// Listen to a single instance only
+c = Caman("#image");
+Caman.Event.listen(c, "processComplete", function (job) {
+  console.log("Finished:", job.name);
+});
+{% endhighlight %}
