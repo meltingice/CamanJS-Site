@@ -44,13 +44,35 @@ Caman("#canvas-id", function () {
 });
 {% endhighlight %}
 
-<h3>NodeJS - Basic Usage</h3>
+<h3>NodeJS</h3>
+
+<h4>Installation</h4>
+
+<p>We can easily install CamanJS using npm. In the base folder of your project, run:</p>
+
+{% highlight bash %}
+npm install caman
+{% endhighlight %}
+
+<p>If you run into issues installing CamanJS, you may need to install/update some dependencies. You need:</p>
+
+<ul class="TableList">
+  <li>cairo</li>
+  <li>libjpeg</li>
+  <li>libpng</li>
+</ul>
+
+<div class="Clear"></div>
+
+<h4>Basic Usage</h4>
 
 <p>Initialization with NodeJS is extremely simple. You can either give Caman the path to an image on disk, or an already initialized File object.</p>
 
 <p>Once you are done modifying the image, you can save the modified image to disk as well.</p>
 
 {% highlight js %}
+var Caman = require('caman').Caman;
+
 Caman("/path/to/file.png", function () {
   this.brightness(5);
   this.render(function () {
