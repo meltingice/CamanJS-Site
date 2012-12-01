@@ -1,10 +1,54 @@
----
-layout: main
-title: Javascript Image Manipulation
-section: home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf8">
+  <title>CamanJS - Javascript Image Manipulation</title>
 
-{% include header.html %}
+  <link rel='stylesheet' type='text/css' href='/stylesheets/main.css' />
+<link rel='stylesheet' type='text/css' href='/stylesheets/sections/home.css' />
+<link rel='stylesheet' type='text/css' href='/stylesheets/pygments.css' />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Raleway:400,200,700' rel='stylesheet' type='text/css'>
+
+  <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/camanjs/3.2.2/caman.full.min.js'></script>
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+<script type='text/javascript' src='/javascripts/ext/html5slider.js'></script>
+<script type='text/javascript' src='/javascripts/ext/underscore.js'></script>
+
+
+  <script src="/javascripts/home.js"></script>
+</head>
+<body>
+  <div
+  id="HeaderContainer"
+  
+>
+  <div id="Header">
+    <div class="Left">
+      <h1>CamanJS</h1>
+    </div>
+    <div class="Right">
+      <ul>
+        <li class="Active">
+          <a href="/">Home</a>
+        </li>
+        <li >
+          <a href="/examples">Examples</a>
+        </li>
+        <li >
+          <a href="/guides">Guides</a>
+        </li>
+        <li >
+          <a href="/docs/caman.html">API Docs</a>
+        </li>
+      </ul>
+    </div>
+    <div class="Clear"></div>
+
+    
+  </div>
+</div>
 
 <div id="Content">
 
@@ -18,23 +62,27 @@ section: home
 
   <p>Javascript</p>
 
-  {% highlight js %}
-  Caman('#my-image', function () {
-    this.brightness(10);
-    this.contrast(30);
-    this.sepia(60);
-    this.saturation(-30);
-    this.render();
-  });
-  {% endhighlight %}
+  <div class="highlight"><pre><code class="js">  <span class="nx">Caman</span><span class="p">(</span><span class="s1">&#39;#my-image&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">brightness</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">contrast</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">sepia</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">saturation</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+  <span class="p">});</span>
+  
+</code></pre>
+</div>
+
 
   <p>HTML data attribute</p>
-  {% highlight html %}
-  <img 
-    data-caman="brightness(10) contrast(30) sepia(60) saturation(-30)"
-    src="path/to/image.jpg"
-  >
-  {% endhighlight %}
+  <div class="highlight"><pre><code class="html">  <span class="nt">&lt;img</span> 
+    <span class="na">data-caman=</span><span class="s">&quot;brightness(10) contrast(30) sepia(60) saturation(-30)&quot;</span>
+    <span class="na">src=</span><span class="s">&quot;path/to/image.jpg&quot;</span>
+  <span class="nt">&gt;</span>
+  
+</code></pre>
+</div>
+
 
   <div id="HomeExamples">
     <div class="Left">
@@ -55,9 +103,9 @@ section: home
   <div class="HomeLinks">
     <div class="LinksSection">
       <h4>Latest Stable</h4>
-      <p>Version {{site.caman.stable_version}}</p>
+      <p>Version 3.2.3</p>
 
-      <a href="https://github.com/meltingice/CamanJS/archive/v{{site.caman.stable_version}}.zip">Download</a>
+      <a href="https://github.com/meltingice/CamanJS/archive/v3.2.3.zip">Download</a>
     </div>
 
     <div class="LinksSection">
@@ -69,8 +117,8 @@ section: home
 
     <div class="LinksSection">
       <h4>CDN Hosting</h4>
-      <p>Version {{site.caman.cdn_version}}</p>
-      <a href="http://cdnjs.cloudflare.com/ajax/libs/camanjs/{{site.caman.cdn_version}}/caman.full.min.js">Get Link</a>
+      <p>Version 3.2.2</p>
+      <a href="http://cdnjs.cloudflare.com/ajax/libs/camanjs/3.2.2/caman.full.min.js">Get Link</a>
     </div>
 
     <div class="Clear"></div>
@@ -93,3 +141,5 @@ section: home
   </div>
 
 </div>
+</body>
+</html>

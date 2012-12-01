@@ -1,10 +1,54 @@
----
-layout: main
-title: Interactive Examples
-section: examples
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf8">
+  <title>CamanJS - Interactive Examples</title>
 
-{% include header.html %}
+  <link rel='stylesheet' type='text/css' href='/stylesheets/main.css' />
+<link rel='stylesheet' type='text/css' href='/stylesheets/sections/examples.css' />
+<link rel='stylesheet' type='text/css' href='/stylesheets/pygments.css' />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Raleway:400,200,700' rel='stylesheet' type='text/css'>
+
+  <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/camanjs/3.2.2/caman.full.min.js'></script>
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+<script type='text/javascript' src='/javascripts/ext/html5slider.js'></script>
+<script type='text/javascript' src='/javascripts/ext/underscore.js'></script>
+
+
+  <script src="/javascripts/examples.js"></script>
+</head>
+<body>
+  <div
+  id="HeaderContainer"
+  
+>
+  <div id="Header">
+    <div class="Left">
+      <h1>CamanJS</h1>
+    </div>
+    <div class="Right">
+      <ul>
+        <li >
+          <a href="/">Home</a>
+        </li>
+        <li class="Active">
+          <a href="/examples">Examples</a>
+        </li>
+        <li >
+          <a href="/guides">Guides</a>
+        </li>
+        <li >
+          <a href="/docs/caman.html">API Docs</a>
+        </li>
+      </ul>
+    </div>
+    <div class="Clear"></div>
+
+    
+  </div>
+</div>
 
 <div id="Content">
   <h3>Interactive Example</h3>
@@ -13,25 +57,187 @@ section: examples
   <img id="example" src="/images/example1_600.jpg">
 
   <div id="Filters">
-  {% for filter in site.filters %}
+  
     <div class="Filter">
       <div class="FilterName">
-        <p>{{filter}}</p>
+        <p>brightness</p>
       </div>
 
       <div class="FilterSetting">
         <input
           type="range" 
-          min="{{site.filter_options[filter].min}}"
-          max="{{site.filter_options[filter].max}}"
-          step="{{site.filter_options[filter].step}}"
+          min="-100"
+          max="100"
+          step="1"
           value="0"
-          data-filter="{{filter}}"
+          data-filter="brightness"
         >
         <span class="FilterValue">0</span>
       </div>
     </div>
-  {% endfor %}
+  
+    <div class="Filter">
+      <div class="FilterName">
+        <p>contrast</p>
+      </div>
+
+      <div class="FilterSetting">
+        <input
+          type="range" 
+          min="-100"
+          max="100"
+          step="1"
+          value="0"
+          data-filter="contrast"
+        >
+        <span class="FilterValue">0</span>
+      </div>
+    </div>
+  
+    <div class="Filter">
+      <div class="FilterName">
+        <p>saturation</p>
+      </div>
+
+      <div class="FilterSetting">
+        <input
+          type="range" 
+          min="-100"
+          max="100"
+          step="1"
+          value="0"
+          data-filter="saturation"
+        >
+        <span class="FilterValue">0</span>
+      </div>
+    </div>
+  
+    <div class="Filter">
+      <div class="FilterName">
+        <p>vibrance</p>
+      </div>
+
+      <div class="FilterSetting">
+        <input
+          type="range" 
+          min="-100"
+          max="100"
+          step="1"
+          value="0"
+          data-filter="vibrance"
+        >
+        <span class="FilterValue">0</span>
+      </div>
+    </div>
+  
+    <div class="Filter">
+      <div class="FilterName">
+        <p>exposure</p>
+      </div>
+
+      <div class="FilterSetting">
+        <input
+          type="range" 
+          min="-100"
+          max="100"
+          step="1"
+          value="0"
+          data-filter="exposure"
+        >
+        <span class="FilterValue">0</span>
+      </div>
+    </div>
+  
+    <div class="Filter">
+      <div class="FilterName">
+        <p>hue</p>
+      </div>
+
+      <div class="FilterSetting">
+        <input
+          type="range" 
+          min="0"
+          max="100"
+          step="1"
+          value="0"
+          data-filter="hue"
+        >
+        <span class="FilterValue">0</span>
+      </div>
+    </div>
+  
+    <div class="Filter">
+      <div class="FilterName">
+        <p>sepia</p>
+      </div>
+
+      <div class="FilterSetting">
+        <input
+          type="range" 
+          min="0"
+          max="100"
+          step="1"
+          value="0"
+          data-filter="sepia"
+        >
+        <span class="FilterValue">0</span>
+      </div>
+    </div>
+  
+    <div class="Filter">
+      <div class="FilterName">
+        <p>gamma</p>
+      </div>
+
+      <div class="FilterSetting">
+        <input
+          type="range" 
+          min="0"
+          max="10"
+          step="0.1"
+          value="0"
+          data-filter="gamma"
+        >
+        <span class="FilterValue">0</span>
+      </div>
+    </div>
+  
+    <div class="Filter">
+      <div class="FilterName">
+        <p>noise</p>
+      </div>
+
+      <div class="FilterSetting">
+        <input
+          type="range" 
+          min="0"
+          max="100"
+          step="1"
+          value="0"
+          data-filter="noise"
+        >
+        <span class="FilterValue">0</span>
+      </div>
+    </div>
+  
+    <div class="Filter">
+      <div class="FilterName">
+        <p>clip</p>
+      </div>
+
+      <div class="FilterSetting">
+        <input
+          type="range" 
+          min="0"
+          max="100"
+          step="1"
+          value="0"
+          data-filter="clip"
+        >
+        <span class="FilterValue">0</span>
+      </div>
+    </div>
+  
 
   <div class="Clear"></div>
   </div>
@@ -42,8 +248,44 @@ section: examples
   <img id="preset-example" src="/images/example2_600.jpg">
 
   <div id="PresetFilters">
-  {% for preset in site.caman_presets %}
-    <a data-preset="{{preset}}">{% format_camelcase preset %}</a>
-  {% endfor %}
+  
+    <a data-preset="vintage">Vintage</a>
+  
+    <a data-preset="lomo">Lomo</a>
+  
+    <a data-preset="clarity">Clarity</a>
+  
+    <a data-preset="sinCity">Sin City</a>
+  
+    <a data-preset="sunrise">Sunrise</a>
+  
+    <a data-preset="crossProcess">Cross Process</a>
+  
+    <a data-preset="orangePeel">Orange Peel</a>
+  
+    <a data-preset="love">Love</a>
+  
+    <a data-preset="grungy">Grungy</a>
+  
+    <a data-preset="jarques">Jarques</a>
+  
+    <a data-preset="pinhole">Pinhole</a>
+  
+    <a data-preset="oldBoot">Old Boot</a>
+  
+    <a data-preset="glowingSun">Glowing Sun</a>
+  
+    <a data-preset="hazyDays">Hazy Days</a>
+  
+    <a data-preset="herMajesty">Her Majesty</a>
+  
+    <a data-preset="nostalgia">Nostalgia</a>
+  
+    <a data-preset="hemingway">Hemingway</a>
+  
+    <a data-preset="concentrate">Concentrate</a>
+  
   </div>
 </div>
+</body>
+</html>
