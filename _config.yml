@@ -13,7 +13,7 @@ asset_bundler:
   dev: false
 caman:
   stable_version: 3.3.0
-  cdn_version: 3.2.2
+  cdn_version: 3.3.0
 
 filters:
   - brightness
