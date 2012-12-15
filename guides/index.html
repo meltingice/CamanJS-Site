@@ -64,25 +64,49 @@
 
 <p>First, we'll need to include the appropriate Javascript files:</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Either include the full CamanJS code including plugins --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;caman.full.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- Or include the core library and some plugins/filters --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;caman.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;plugins/myplugin.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+</div>
+
 
 <h4>Loading an Image into a Canvas via URL</h4>
 
 <p>This method assumes you already have a canvas element in the page, and you would like to load an image via URL into the canvas for editing with CamanJS. You can also give DOM objects instead of Strings if you prefer.</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;path/to/image.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;#canvas-id&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// manipulate image here</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">brightness</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Replace an Image with a Canvas</h4>
 
 <p>This performs an "in-place" initialization by replacing the given image with an identically sized canvas. If you don't modify the image at all, it will look identical to the user. This can also accept a DOM object instead of a CSS selector.</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image-id&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">brightness</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Loading a Canvas with Existing Image Data</h4>
 
 <p>If you have a canvas you want to modify, but it already has image data on it, you can give the canvas as the first argument. This can accept a DOM object as well.</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#canvas-id&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">brightness</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h3>NodeJS</h3>
 
@@ -90,7 +114,10 @@ Liquid error: Invalid command name
 
 <p>We can easily install CamanJS using npm. In the base folder of your project, run:</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="bash">npm install caman
+</code></pre>
+</div>
+
 
 <p>If you run into issues installing CamanJS, you may need to install/update some dependencies. You need:</p>
 
@@ -108,7 +135,17 @@ Liquid error: Invalid command name
 
 <p>Once you are done modifying the image, you can save the modified image to disk as well.</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="kd">var</span> <span class="nx">Caman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;caman&#39;</span><span class="p">).</span><span class="nx">Caman</span><span class="p">;</span>
+
+<span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;/path/to/file.png&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">brightness</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s2">&quot;/path/to/output.png&quot;</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
   <div class="SectionBreak"></div>
 
   <h3 id="AdvancedUsage">Advanced Usage</h3>
@@ -119,7 +156,39 @@ Liquid error: Invalid command name
 
 <p>When layers are applied to their parents, it is done using a particular blending mode. The default is "normal".</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// We can call any filter before the layer</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">exposure</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">);</span>
+
+  <span class="c1">// Create the layer</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">newLayer</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Change the blending mode</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setBlendingMode</span><span class="p">(</span><span class="s2">&quot;multiply&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Change the opacity of this layer</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">opacity</span><span class="p">(</span><span class="mi">80</span><span class="p">);</span>
+
+    <span class="c1">// Now we can *either* fill this layer with a</span>
+    <span class="c1">// solid color...</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">fillColor</span><span class="p">(</span><span class="s1">&#39;#6899ba&#39;</span><span class="p">);</span>
+
+    <span class="c1">// ... or we can copy the contents of the parent</span>
+    <span class="c1">// layer to this one.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">copyParent</span><span class="p">();</span>
+
+    <span class="c1">// Now, we can call any filter function though the</span>
+    <span class="c1">// filter object.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">filter</span><span class="p">.</span><span class="nx">brightness</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">filter</span><span class="p">.</span><span class="nx">contrast</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// And we can call more filters after the layer</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">clip</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Blenders</h4>
 <p>As mentioned above in the Layers section, when a layer is applied to it's parent, it uses a blending function. The built-in blending functions are:</p>
@@ -149,15 +218,42 @@ Liquid error: Invalid command name
 
 <h5>Resize at Initialization</h5>
 <p>Resizing at initialization is handled by the data attributes camanwidth and camanheight. Specifying one or both will resize the image when it is applied to the canvas. The image will be stretched if the given size has a different width:height ratio than the original.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;img</span>
+  <span class="na">src=</span><span class="s">&quot;path/to/image.jpg&quot;</span> 
+  <span class="na">data-camanwidth=</span><span class="s">&quot;500&quot;</span>
+  <span class="na">data-camanheight=</span><span class="s">&quot;500&quot;</span>
+<span class="nt">&gt;</span>
+</code></pre>
+</div>
+
 
 <h5>Resize via Plugin</h5>
 <p>Resizing is provided as a CamanJS plugin. You must specify at least width or height. Changing the width:height ratio will stretch the image.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">resize</span><span class="p">({</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="mi">300</span>
+  <span class="p">});</span>
+
+  <span class="c1">// You still have to call render!</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h5>Crop via Plugin</h5>
 <p>Cropping is also provided as a CamanJS plugin. You must specify at least the new width and height. You can optionally also specity the coordinates of the top left corner where the cropping should start.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// width, height, x, y</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">crop</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+
+  <span class="c1">// Still have to call render!</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Events</h4>
 
@@ -175,7 +271,19 @@ Liquid error: Invalid command name
 
 <p><code>processStart</code> and <code>processComplete</code> are triggered when a single filter starts and finishes rendering. When all filters are finished and the modification is complete, <code>renderFinished</code> is triggered. The renderer in CamanJS splits the image into blocks, so when a single block starts and finishes rendering, <code>blockStarted</code> and <code>blockFinished</code> are triggered. These are also useful for tracking render progress for larger images.</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="c1">// Listen to all CamanJS instances</span>
+<span class="nx">Caman</span><span class="p">.</span><span class="nx">Event</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="s2">&quot;processStart&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Start:&quot;</span><span class="p">,</span> <span class="nx">job</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Listen to a single instance only</span>
+<span class="nx">c</span> <span class="o">=</span> <span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">);</span>
+<span class="nx">Caman</span><span class="p">.</span><span class="nx">Event</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="s2">&quot;processComplete&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Finished:&quot;</span><span class="p">,</span> <span class="nx">job</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
   <div class="SectionBreak"></div>
 
   <h3 id="BuiltIn">Built-In Functionality</h3>
@@ -186,27 +294,63 @@ Liquid error: Invalid command name
 <h4>Brightness</h4>
 <p>Simple brightness adjustment.</p>
 <p>Range is -100 to 100. Values < 0 will darken while > 0 will brighten.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">brightness</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+
 
 <h4>Channels</h4>
 <p>Lets you modify the intensity of the Red, Green, and Blue color channels individually.</p>
 <p>Must be given an argument with at least one channel to adjust. Adjustment values are from -100 to 100.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">channels</span><span class="p">({</span>
+    <span class="nx">red</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nx">green</span><span class="o">:</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>
+    <span class="nx">blue</span><span class="o">:</span> <span class="mi">2</span>
+  <span class="p">}).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Clip</h4>
 <p>Clips the color values when they fall outside of the given range.</p>
 <p>Range is from 0 to 100.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">clip</span><span class="p">(</span><span class="mi">20</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Colorize</h4>
 <p>Uniformly shifts the colors in an image towards the given color.</p>
 <p>The adjustment range is from 0 to 100. The higher the value, the closer the colors in the image shift towards the given adjustment color. This filter is polymorphic and can take two different sets of arguments, which are shown below:</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Explicitly give the R, G, and B values of the</span>
+  <span class="c1">// color to shift towards.</span>
+  <span class="c1">//</span>
+  <span class="c1">// Arguments: (R, G, B, strength)</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">colorize</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+  
+  <span class="c1">// The other way is to specify a color in hex form:</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">colorize</span><span class="p">(</span><span class="s2">&quot;#4090D5&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Contrast</h4>
 <p>Increases or decreases the color contrast of the image.</p>
 <p>Range is -100 to 100. Values < 0 will decrease contrast while values > 0 will increase contrast. Note: the contrast adjustment values are a bit sensitive. While unrestricted, sane adjustment values are usually around 5-10.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">contrast</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Curves</h4>
 <img class="Right" style="width:300px;" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Bezier_curve.svg/800px-Bezier_curve.svg.png">
@@ -215,60 +359,124 @@ Liquid error: Invalid command name
 <p>The first argument represents the channels you wish to modify with the filter. It can be an array of channels or a string (for a single channel).</p>
 <p>The rest of the arguments are 2-element arrays that represent point coordinates. They are specified in the same order as shown in this image to the right. The coordinates are in the range of 0 to 255 for both X and Y values.</p>
 <p>The x-axis represents the input value for a single channel, while the y-axis represents the output value.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Using a string for the channel</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">curves</span><span class="p">(</span><span class="s1">&#39;rgb&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">],</span> <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="mi">240</span><span class="p">],</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">]);</span>
+  
+  <span class="c1">// Specifying individual color channels</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">curves</span><span class="p">([</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">],</span> <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="mi">240</span><span class="p">],</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">]);</span>
+  
+  <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Exposure</h4>
 <p>Simple exposure adjustment. Behind the scenes, this filter actually uses the Curves filter.</p>
 <p>Range is -100 to 100. Values < 0 will decrease exposure while values > 0 will increase exposure.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">exposure</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Fill Color</h4>
 <p>Fills the canvas with a single solid color. Useful when used with layers.</p>
 <p>Can take either separate R, G, and B values as arguments, or a single hex color value.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">fillColor</span><span class="p">(</span><span class="s2">&quot;#e2e2e2&quot;</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">fillColor</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span> <span class="mi">215</span><span class="p">,</span> <span class="mi">56</span><span class="p">);</span>
+  
+  <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Gamma</h4>
 <p>Lets you adjust the gamma of the image.</p>
 <p>Range is from 0 to infinity, although sane values are from 0 to 4 or 5. Values between 0 and 1 will lessen the contrast while values greater than 1 will increase it.</p>
 <p>If you are unsure of what gamma really does, I recommend reading this <a href="http://en.wikipedia.org/wiki/Gamma_correction">Wikipedia article</a>.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">gamma</span><span class="p">(</span><span class="mf">1.4</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Greyscale</h4>
 <p>Converts the image to greyscale. This is the preferred method for converting to greyscale, as opposed to using the saturation filter.</p>
 <p>This filter does not take any arguments.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">greyscale</span><span class="p">().</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Hue</h4>
 <p>Adjusts the hue of the image. It can be used to shift the colors in an image in a uniform fashion. If you are unfamiliar with Hue, I recommend reading this <a href="http://en.wikipedia.org/wiki/Hue">Wikipedia article</a>.</p>
 <p>Range is 0 to 100.</p>
 <p>Sometimes, Hue is expressed in the range of 0 to 360. If that's the terminology you're used to, think of 0 to 100 representing the percentage of Hue shift in the 0 to 360 range.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">hue</span><span class="p">(</span><span class="mi">90</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Invert</h4>
 <p>Inverts all colors in the image by subtracting each color channel value from 255.</p>
 <p>This filter does not take any arguments.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">invert</span><span class="p">().</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Noise</h4>
 <p>Applies an adjustable amount of noise to the image.</p>
 <p>Range is from 0 to infinity. The higher the value, the more noise is applied.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">noise</span><span class="p">(</span><span class="mi">15</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Saturation</h4>
 <p>Adjusts the color saturation of the image. If you want to completely desaturate the image, using the greyscale filter is highly recommended because it will yield better results.</p>
 <p>Range is -100 to 100. Values < 0 will desaturate the image while values > 0 will saturate it.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">saturation</span><span class="p">(</span><span class="mi">15</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Sepia</h4>
 <p>Applies an adjustable sepia effect to the image.</p>
 <p>Range is from 0 to 100. The larger the value, the stronger the sepia effect.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">sepia</span><span class="p">(</span><span class="mi">50</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Vibrance</h4>
 <p>Similar to saturation, but adjusts the saturation levels in a slightly smarter, more subtle way. Vibrance will boost colors that are less saturated more and boost already saturated colors less, while saturation boosts all colors by the same level.</p>
 <p>Range is -100 to 100. Values < 0 will desaturate the image while values > 0 will saturate it.</p>
 <p>If you want to completely desaturate the image, using the greyscale filter is highly recommended because it will yield better results.</p>
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">(</span><span class="s2">&quot;#image&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">vibrance</span><span class="p">(</span><span class="mi">15</span><span class="p">).</span><span class="nx">render</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
   <div class="SectionBreak"></div>
 
   <h3 id="Extending">Extending CamanJS</h3>
@@ -280,30 +488,139 @@ Liquid error: Invalid command name
 
 <p>Here is how the posterize filter is implemented:</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="c1">// The adjust value is the argument given by the user when</span>
+<span class="c1">// they call this filter.</span>
+<span class="nx">Caman</span><span class="p">.</span><span class="nx">Filter</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;posterize&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">adjust</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Pre-calculate some values that will be used</span>
+  <span class="kd">var</span> <span class="nx">numOfAreas</span> <span class="o">=</span> <span class="mi">256</span> <span class="o">/</span> <span class="nx">adjust</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">numOfValues</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">/</span> <span class="p">(</span><span class="nx">adjust</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// Our process function that will be called for each pixel.</span>
+  <span class="c1">// Note that we pass the name of the filter as the first argument.</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="s2">&quot;posterize&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">rgba</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">rgba</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">rgba</span><span class="p">.</span><span class="nx">r</span> <span class="o">/</span> <span class="nx">numOfAreas</span><span class="p">)</span> <span class="o">*</span> <span class="nx">numOfValues</span><span class="p">);</span>
+    <span class="nx">rgba</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">rgba</span><span class="p">.</span><span class="nx">g</span> <span class="o">/</span> <span class="nx">numOfAreas</span><span class="p">)</span> <span class="o">*</span> <span class="nx">numOfValues</span><span class="p">);</span>
+    <span class="nx">rgba</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">rgba</span><span class="p">.</span><span class="nx">b</span> <span class="o">/</span> <span class="nx">numOfAreas</span><span class="p">)</span> <span class="o">*</span> <span class="nx">numOfValues</span><span class="p">);</span>
+
+    <span class="c1">// Return the modified RGB values</span>
+    <span class="k">return</span> <span class="nx">rgba</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <p>These filters also have access to a special object that is aware of the current location of the pixel given to the process function. This object exposes many helpful functions that allow you to not only get the location, but also get/set the values of other pixels in the image. All of it's functionality is shown below:</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">.</span><span class="nx">Filter</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">adjust</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">locationXY</span><span class="p">();</span> <span class="c1">// e.g. {x: 0, y: 0}</span>
+
+    <span class="c1">// Gets the RGBA object for the pixel that is 2 rows down</span>
+    <span class="c1">// and 3 columns to the right.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">getPixelRelative</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+    <span class="c1">// Sets the color for the pixel that is 2 rows down and</span>
+    <span class="c1">// 3 columns to the right.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">putPixelRelative</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">r</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="nx">g</span><span class="o">:</span> <span class="mi">120</span><span class="p">,</span>
+      <span class="nx">b</span><span class="o">:</span> <span class="mi">140</span><span class="p">,</span>
+      <span class="nx">a</span><span class="o">:</span> <span class="mi">255</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Gets the RGBA object for the pixel at the given absolute</span>
+    <span class="c1">// coordinates. This is relative to the top left corner.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">getPixel</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+
+    <span class="c1">// Sets the color for the pixel at the given absolute coordinates.</span>
+    <span class="c1">// Also relative to the top left corner.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">putPixel</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">r</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="nx">g</span><span class="o">:</span> <span class="mi">120</span><span class="p">,</span>
+      <span class="nx">b</span><span class="o">:</span> <span class="mi">140</span><span class="p">,</span>
+      <span class="nx">a</span><span class="o">:</span> <span class="mi">255</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Kernel Manipulations</h4>
 <p>Not everything can be done one pixel at a time. Another way to modify images is by using a convolution kernel. This is simply a matrix that describes how to modify a certain pixel based on the ones around it. The <a href="http://gimp.open-source-solution.org/manual/plug-in-convmatrix.html">GIMP documentation</a> does a great job at explaining this.</p>
 
 <p>In CamanJS, kernels are defined by 1-dimensional arrays. The divisor and bias are automatically calculated for you, but you can manually specify them after the convolution matrix if needed.</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">.</span><span class="nx">Filter</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;boxBlur&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Instead of calling process, we call processKernel.</span>
+  <span class="c1">// The first argument is an arbitrary name used to </span>
+  <span class="c1">// identify the filter. The optional 3rd and 4th arguments</span>
+  <span class="c1">// are the divisor and bias, respectively.</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">processKernel</span><span class="p">(</span><span class="s2">&quot;Box Blur&quot;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+  <span class="p">]);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Advanced Plugins</h4>
 <p>If what you want to do doesn't fit into the workflow of pixelwise plugins or kernel manipulations, then you can also get full access to the canvas data inside of CamanJS using plugins.</p>
 
 <p>Some examples of plugins include the super-fast Stack Blur algorithm and cropping/resizing. Notice that you also have to create a filter function for plugins. Here's how cropping works:</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;crop&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">canvas</span><span class="p">,</span> <span class="nx">ctx</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">y</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Support NodeJS by checking for exports object</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">exports</span> <span class="o">!==</span> <span class="s2">&quot;undefined&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">exports</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Canvas</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">);</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Get the new context and draw a portion of the current canvas</span>
+  <span class="c1">// to the new canvas.</span>
+  <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
+
+  <span class="c1">// Tell CamanJS to replace the current canvas with our new cropped one.</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">replaceCanvas</span><span class="p">(</span><span class="nx">canvas</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Register our filter for the plugin</span>
+<span class="nx">Caman</span><span class="p">.</span><span class="nx">Filter</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;crop&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Here we call processPlugin so CamanJS knows how to handle it</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">processPlugin</span><span class="p">(</span><span class="s2">&quot;crop&quot;</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <h4>Blenders</h4>
 <p>You can add new blenders that control how layers are applied to their parent layers. Here's how the multiply blender would be implemented:</p>
 
-Liquid error: Invalid command name
+<div class="highlight"><pre><code class="js"><span class="nx">Caman</span><span class="p">.</span><span class="nx">Blender</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;multiply&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">rgbaLayer</span><span class="p">,</span> <span class="nx">rgbaParent</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">r</span><span class="o">:</span> <span class="p">(</span><span class="nx">rgbaLayer</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="nx">rgbaParent</span><span class="p">.</span><span class="nx">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+    <span class="nx">g</span><span class="o">:</span> <span class="p">(</span><span class="nx">rgbaLayer</span><span class="p">.</span><span class="nx">g</span> <span class="o">*</span> <span class="nx">rgbaParent</span><span class="p">.</span><span class="nx">g</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+    <span class="nx">b</span><span class="o">:</span> <span class="p">(</span><span class="nx">rgbaLayer</span><span class="p">.</span><span class="nx">b</span> <span class="o">*</span> <span class="nx">rgbaParent</span><span class="p">.</span><span class="nx">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
 
 <p>The two arguments to the blending function are the RGB values for the pixel in the current layer and the corresponding pixel in the parent layer, respectively. The blending function needs to return a new RGB object that will be the pixel's new color.</p>
 </div>

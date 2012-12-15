@@ -57,10 +57,27 @@
 
   <p>Javascript</p>
 
-  Liquid error: Invalid command name
+  <div class="highlight"><pre><code class="js">  <span class="nx">Caman</span><span class="p">(</span><span class="s1">&#39;#my-image&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">brightness</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">contrast</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">sepia</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">saturation</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+  <span class="p">});</span>
+  
+</code></pre>
+</div>
+
 
   <p>HTML data attribute</p>
-  Liquid error: Invalid command name
+  <div class="highlight"><pre><code class="html">  <span class="nt">&lt;img</span> 
+    <span class="na">data-caman=</span><span class="s">&quot;brightness(10) contrast(30) sepia(60) saturation(-30)&quot;</span>
+    <span class="na">src=</span><span class="s">&quot;path/to/image.jpg&quot;</span>
+  <span class="nt">&gt;</span>
+  
+</code></pre>
+</div>
+
 
   <div id="HomeExamples">
     <div class="Left">
