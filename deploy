@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 git submodule init && git submodule update
 rake jekyll:compile
