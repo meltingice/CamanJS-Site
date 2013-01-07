@@ -4,15 +4,16 @@
   <meta charset="utf8">
   <title>CamanJS - Basic Usage</title>
 
-  <link rel='stylesheet' type='text/css' href='/bundles/0e02b474f069a81249b96d82cb7559df.css' />
+  <link rel='stylesheet' type='text/css' href='/bundles/779171b341598db5e13633465e59f694.css' />
 
 
   <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Raleway:400,200,700' rel='stylesheet' type='text/css'>
 
-  <script type='text/javascript' src='/bundles/78be892198fbf1b7ab6d278956848c11.js'></script>
-
+  Liquid error: compression failed
 
   <script src="/javascripts/guides.js"></script>
+
+  
 </head>
 <body>
   <div
@@ -107,6 +108,20 @@
 </code></pre>
 </div>
 
+
+<h4>HiDPI Support</h4>
+
+<p>CamanJS supports HiDPI displays (also known as Retina displays) as of version 4. Specifying HiDPI image replacements is done via the <code>data-caman-hidpi</code> HTML attribute.</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;img</span>
+  <span class="na">src=</span><span class="s">&quot;/path/to/image.jpg&quot;</span>
+  <span class="na">data-caman-hidpi=</span><span class="s">&quot;/path/to/image@2x.jpg&quot;</span>
+<span class="nt">&gt;</span>
+</code></pre>
+</div>
+
+
+<p>If a HiDPI display is detected, CamanJS will automatically switch to the HiDPI version if available unless you force disable it with the <code>data-caman-hidpi-disabled</code> attribute. It's important to remember that higher resolution images take longer to render, simply because they have more pixels.</p>
 
 <h3>NodeJS</h3>
 
