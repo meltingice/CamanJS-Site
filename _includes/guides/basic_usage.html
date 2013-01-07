@@ -44,6 +44,19 @@ Caman("#canvas-id", function () {
 });
 {% endhighlight %}
 
+<h4>HiDPI Support</h4>
+
+<p>CamanJS supports HiDPI displays (also known as Retina displays) as of version 4. Specifying HiDPI image replacements is done via the <code>data-caman-hidpi</code> HTML attribute.</p>
+
+{% highlight html %}
+<img
+  src="/path/to/image.jpg"
+  data-caman-hidpi="/path/to/image@2x.jpg"
+>
+{% endhighlight %}
+
+<p>If a HiDPI display is detected, CamanJS will automatically switch to the HiDPI version if available unless you force disable it with the <code>data-caman-hidpi-disabled</code> attribute. It's important to remember that higher resolution images take longer to render, simply because they have more pixels.</p>
+
 <h3>NodeJS</h3>
 
 <h4>Installation</h4>

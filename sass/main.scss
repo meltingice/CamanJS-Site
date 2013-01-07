@@ -5,8 +5,8 @@
 $siteWidth: 600px;
 
 body {
-  padding: 0;
-  margin: 0;
+  padding: 0 0 50px 0;
+  margin: 0 0 50px 0;
 }
 
 .Clear {
@@ -62,4 +62,14 @@ body {
   &.Across5 {
     li { width: ($siteWidth / 5) - 6; }
   }
+}
+
+.CopyCommand {
+  @include borderRadius(3px);
+
+  background-color: #f8f8f8;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
 }
