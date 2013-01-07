@@ -32,19 +32,25 @@ section: home
   {% highlight html %}
   <img 
     data-caman="brightness(10) contrast(30) sepia(60) saturation(-30)"
+    data-caman-hidpi="/path/to/image@2x.jpg"
     src="path/to/image.jpg"
   >
   {% endhighlight %}
 
   <div id="HomeExamples">
     <div class="Left">
-      <img src="/images/example1_290.jpg">
+      <img 
+        src="/images/example1_290.jpg"
+        data-caman=""
+        data-caman-hidpi="/images/example1_580.jpg"
+      >
       <p>Before</p>
     </div>
     <div class="Right">
       <img 
         src="/images/example1_290.jpg"
         data-caman="brightness(10) contrast(30) sepia(60) saturation(-30)"
+        data-caman-hidpi="/images/example1_580.jpg"
       >
       <p>After</p>
     </div>

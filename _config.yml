@@ -12,7 +12,7 @@ asset_bundler:
   remove_bundled: false
   dev: false
 caman:
-  stable_version: 3.3.0
+  stable_version: 4.0.0
   cdn_version: 3.3.0
 
 filters:

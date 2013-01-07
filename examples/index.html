@@ -10,7 +10,11 @@ section: examples
   <h3>Interactive Example</h3>
   <p>Choose a filter and move the slider to see it in action. This is only a sample of the full power of CamanJS.</p>
 
-  <img id="example" src="/images/example1_600.jpg">
+  <img
+    id="example" 
+    src="/images/example1_600.jpg"
+    data-caman-hidpi="/images/example1_1200.jpg"
+  >
 
   <div id="Filters">
   {% for filter in site.filters %}
@@ -39,7 +43,11 @@ section: examples
   <h3>Preset Examples</h3>
   <p>CamanJS has a number of preset filters that show off how to generate consistent effects on many types of images.</p>
 
-  <img id="preset-example" src="/images/example2_600.jpg">
+  <img 
+    id="preset-example" 
+    src="/images/example2_600.jpg"
+    data-caman-hidpi="/images/example2_1200.jpg"
+  >
 
   <div id="PresetFilters">
   {% for preset in site.caman_presets %}
