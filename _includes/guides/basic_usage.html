@@ -18,7 +18,7 @@
 <p>This method assumes you already have a canvas element in the page, and you would like to load an image via URL into the canvas for editing with CamanJS. You can also give DOM objects instead of Strings if you prefer.</p>
 
 {% highlight js %}
-Caman("path/to/image.jpg", "#canvas-id", function () {
+Caman("#canvas-id", "path/to/image.jpg", function () {
   // manipulate image here
   this.brightness(5).render();
 });
