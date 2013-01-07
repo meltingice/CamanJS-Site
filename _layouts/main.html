@@ -4,29 +4,31 @@
   <meta charset="utf8">
   <title>CamanJS - {{ page.title }}</title>
 
-  {% bundle %}
-    - /stylesheets/main.css
-    - /stylesheets/sections/{{page.section}}.css
-    - /stylesheets/pygments.css
-  {% endbundle %}
+  {% css_asset_tag site %}
+    - /_assets/sass/main.css.scss
+    - /_assets/sass/pygments.css.scss
+  {% endcss_asset_tag %}
 
   <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Raleway:400,200,700' rel='stylesheet' type='text/css'>
 
-  {% bundle %}
-    - //raw.github.com/meltingice/CamanJS/master/dist/caman.full.js
-    - //ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
-    - /javascripts/copy-command.js
-    - /javascripts/ext/html5slider.js
-    - /javascripts/ext/underscore.js
-  {% endbundle %}
-
-  <script src="/javascripts/{{page.section}}.js"></script>
-
-  {% if site.dev or site.server %}
-  <script type="text/javascript">
-    Caman.DEBUG = true
-  </script>
+  {% if site.dev or site.server %} 
+    <script type="text/javascript" src="//raw.github.com/meltingice/CamanJS/master/dist/caman.full.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script type="text/javascript">
+      Caman.DEBUG = true
+    </script>
+  {% else %}
+    <script type="text/javascript" src="//raw.github.com/meltingice/CamanJS/master/dist/caman.full.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   {% endif %}
+  
+  {% javascript_asset_tag site %}
+    - /_assets/javascripts/copy-command.js
+    - /_assets/javascripts/ext/html5slider.js
+    - /_assets/javascripts/ext/underscore.js
+    - /_assets/javascripts/examples.js.coffee
+    - /_assets/javascripts/guides.js.coffee
+  {% endjavascript_asset_tag %}
 </head>
 <body>
   {{ content }}

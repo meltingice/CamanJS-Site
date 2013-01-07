@@ -1,7 +1,3 @@
----
-# this is required
----
-
 caman = null
 presetCaman = null
 filters = {} # Filter values

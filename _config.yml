@@ -4,13 +4,11 @@ server_port: 4000
 url: http://localhost:4000
 markdown: rdiscount
 pygments: true
-asset_bundler:
-  compress:
-    js: yui
-    css: yui
-  base_path: /bundles/
-  remove_bundled: false
-  dev: false
+asset_pipeline:
+  bundle: true            # Default = true
+  compress: true          # Default = true
+  output_path: assets     # Default = assets
+  gzip: false             # Default = false
 caman:
   stable_version: 4.0.0
   cdn_version: 3.3.0

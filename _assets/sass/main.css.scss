@@ -1,6 +1,6 @@
-@import "_custom_mixins";
-@import "_type";
-@import "_header";
+@import "_assets/sass/_custom_mixins.css.scss";
+@import "_assets/sass/_type.css.scss";
+@import "_assets/sass/_header.css.scss";
 
 $siteWidth: 600px;
 
@@ -73,3 +73,6 @@ body {
   display: block;
   text-align: center;
 }
+
+@import "_assets/sass/sections/examples.css.scss";
+@import "_assets/sass/sections/home.css.scss";

@@ -1,7 +1,3 @@
----
-# Required
----
-
 setActiveSection = ($spy) ->
   id = $spy.attr('id')
   $spy.attr('id', '')

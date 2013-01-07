@@ -19,8 +19,7 @@ sudo easy_install pygments
 When you're ready, in the base directory run:
 
 ```
-bundle install
-bundle exec foreman start
+jekyll --auto --server
 ```
 
 The site will be available at http://localhost:4000 and changes will automatically recompile.
