@@ -5,10 +5,16 @@
 }
 
 .HomeLinks {
+  &.Across2 {
+    .LinksSection {
+      width: 280px;
+    }
+  }
+
   .LinksSection {
     float: left;
     width: 180px;
-    margin: 0 10px;
+    margin: 0 10px 10px 10px;
 
     h4, p {
       margin: 0;
@@ -31,6 +37,10 @@
       &:active {
         @include boxShadow(inset 1px 1px 3px rgba(0, 0, 0, 0.3));
       }
+    }
+
+    iframe {
+      margin: 10px 0;
     }
 
     .CopyCommand {
