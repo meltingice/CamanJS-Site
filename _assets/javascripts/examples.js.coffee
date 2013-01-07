@@ -6,7 +6,7 @@ busy = false # Are we currently rendering?
 changed = false # Tracks unrendered changes
 
 # Triggers the render, throttled to every 500ms max
-render = _.throttle ->
+render = _.debounce ->
   if busy
     changed = true
     return
@@ -24,7 +24,7 @@ render = _.throttle ->
     caman.render ->
       busy = false
       render() if changed
-, 500
+, 400
 
 presetBusy = false
 renderPreset = (preset) ->
