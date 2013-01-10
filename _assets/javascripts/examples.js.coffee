@@ -14,16 +14,16 @@ render = _.debounce ->
     changed = false
 
   busy = true
-  caman.revert ->
-    for own filter, value of filters
-      value = parseFloat value, 10
-      continue if value is 0
+  caman.revert()
+  for own filter, value of filters
+    value = parseFloat value, 10
+    continue if value is 0
 
-      caman[filter](value)
+    caman[filter](value)
 
-    caman.render ->
-      busy = false
-      render() if changed
+  caman.render ->
+    busy = false
+    render() if changed
 , 400
 
 presetBusy = false
@@ -39,12 +39,12 @@ renderPreset = (preset) ->
     .html('Rendering...')
   
   presetBusy = true
-  presetCaman.revert ->
-    presetCaman[preset]()
-    presetCaman.render ->
-      $filter.html(name)
+  presetCaman.revert()
+  presetCaman[preset]()
+  presetCaman.render ->
+    $filter.html(name)
 
-      presetBusy = false
+    presetBusy = false
 
 $(document).ready ->
   caman = Caman '#example'
