@@ -10,8 +10,8 @@ asset_pipeline:
   output_path: assets     # Default = assets
   gzip: false             # Default = false
 caman:
-  stable_version: 4.0.0
-  cdn_version: 3.3.0
+  stable_version: 4.1.0
+  cdn_version: 4.0.0
 
 filters:
   - brightness
