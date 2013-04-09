@@ -47,6 +47,8 @@ renderPreset = (preset) ->
     presetBusy = false
 
 $(document).ready ->
+  return unless $("#example").length > 0
+  
   caman = Caman '#example'
   presetCaman = Caman '#preset-example'
 

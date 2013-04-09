@@ -10,16 +10,9 @@
   {% endcss_asset_tag %}
 
   <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Raleway:400,200,700' rel='stylesheet' type='text/css'>
-
-  {% if site.dev or site.server %} 
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
-    <script type="text/javascript">
-      Caman.DEBUG = true
-    </script>
-  {% else %}
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  {% endif %}
   
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
   {% javascript_asset_tag site %}
     - /_assets/javascripts/copy-command.js
     - /_assets/javascripts/ext/html5slider.js
@@ -28,6 +21,12 @@
     - /_assets/javascripts/examples.js.coffee
     - /_assets/javascripts/guides.js.coffee
   {% endjavascript_asset_tag %}
+
+  {% if site.dev or site.server %} 
+    <script type="text/javascript">
+      Caman.DEBUG = true
+    </script>
+  {% endif %}
 </head>
 <body>
   {{ content }}
