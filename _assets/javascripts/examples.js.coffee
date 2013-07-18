@@ -6,7 +6,7 @@ busy = false # Are we currently rendering?
 changed = false # Tracks unrendered changes
 
 # Triggers the render, throttled to every 500ms max
-render = _.debounce ->
+render = _.throttle ->
   if busy
     changed = true
     return
@@ -14,7 +14,7 @@ render = _.debounce ->
     changed = false
 
   busy = true
-  caman.revert()
+  caman.revert(false)
   for own filter, value of filters
     value = parseFloat value, 10
     continue if value is 0
@@ -24,7 +24,7 @@ render = _.debounce ->
   caman.render ->
     busy = false
     render() if changed
-, 400
+, 300
 
 presetBusy = false
 renderPreset = (preset) ->
@@ -39,7 +39,7 @@ renderPreset = (preset) ->
     .html('Rendering...')
   
   presetBusy = true
-  presetCaman.revert()
+  presetCaman.revert(false)
   presetCaman[preset]()
   presetCaman.render ->
     $filter.html(name)

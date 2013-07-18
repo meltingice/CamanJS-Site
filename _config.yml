@@ -24,6 +24,8 @@ filters:
   - gamma
   - noise
   - clip
+  - sharpen
+  - stackBlur
 filter_options:
   brightness:
     min: -100
@@ -64,6 +66,14 @@ filter_options:
   clip:
     min: 0
     max: 100
+    step: 1
+  sharpen:
+    min: 0
+    max: 100
+    step: 1
+  stackBlur:
+    min: 0
+    max: 20
     step: 1
 
 caman_presets:
