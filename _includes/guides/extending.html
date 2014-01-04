@@ -25,8 +25,11 @@ Caman.Filter.register("posterize", function (adjust) {
     // Return the modified RGB values
     return rgba;
   });
+  return this; // to enable chaining like this.posterize(3).render();
 });
 {% endhighlight %}
+
+<p>This allows you do then call the <code>posterize</code> method just like <a href="#BuiltIn">any other filter</a>.</p>
 
 <p>These filters also have access to a special object that is aware of the current location of the pixel given to the process function. This object exposes many helpful functions that allow you to not only get the location, but also get/set the values of other pixels in the image. All of it's functionality is shown below:</p>
 
@@ -61,6 +64,7 @@ Caman.Filter.register("example", function (adjust) {
       a: 255
     });
   });
+  return this;
 });
 {% endhighlight %}
 
